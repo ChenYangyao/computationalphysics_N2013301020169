@@ -5,3 +5,4 @@ hahahahahahahahaha！
 
 Today after class meeting, I read the "hello world" and write this simple items.
 hahahahahaha!
+2hahahahahha!
