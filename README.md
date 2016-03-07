@@ -16,6 +16,6 @@
   (已下载！)
 * 学习用github制造图片外链之小动物展示环节
   
-![狗狗](https://github.com/ChenYangyao/computationalphysics_N2013301020169/raw/master/QQ.20140629135438.jpg)
+    ![狗狗](https://github.com/ChenYangyao/computationalphysics_N2013301020169/raw/master/QQ.20140629135438.jpg)
 
 
