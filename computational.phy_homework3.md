@@ -19,7 +19,7 @@
     * 值的改进的地方：若输入字符太多，超过一行的显示范围，则不能成功显示，可以增加自动换行功能；另外，该程序只能显示少数几个字母以及空格，若要显示其他的字母，则需要一一添加至字典；  
 
 * 在屏幕上用字符阵列画出自己想画出的东西，并可以让"图形"动起来。其基本原理和显示字母是类似的，将图形以"像素点"的形式储存于字符阵列即可。另外，根据老师的提示，使用指令`import os`，`i = os.system('cls')`即可清空屏幕上已经显示的"图形"，再输出另外的"帧",即可让图形动起来。再者，使用指令`import time`，`time.sleep(sometime)`即可让计算机输出每帧的间隔拉长，避免动画太快。
-    * 代码在此([戳我戳我](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/homework20160309_2.py))  
+    * 代码在此([戳我戳我](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/homework20160309_2.py))  (运行程序时注意把python的命令窗口调大一点，不然可能显示不全)
     * 结果如图，成功在屏幕上输出一条"正弦曲线"(至少看起来有点像)，并且，该曲线可以随着时间推移逐渐向左移动(这里只把其中一"帧"截图放了上来)。该图形模拟了一束向-x方向传输的正弦波。
     ![正弦波传输图](https://raw.githubusercontent.com/ChenYangyao/computationalphysics_N2013301020169/master/03.2.png)  
     * 值的改进的地方：该图形的点过于分散，不够密，因为每个字符本来就有那么大，所以暂时没想到改善的方法。  
