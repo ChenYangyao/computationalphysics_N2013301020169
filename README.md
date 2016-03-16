@@ -1,4 +1,4 @@
-# **Readme for this repository**
+# **陈洋遥的作业库**
 ## 第一次作业(20160303)
 * 安装Linux系统  
 　　(我觉得windows蛮好用的...)
