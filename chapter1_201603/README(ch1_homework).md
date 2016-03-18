@@ -12,8 +12,8 @@
 　　其中第一个是用来导入、导出数据的；第二个则是绘图的函数库；第三个用来制造数组极为方便。  
 　　欧拉法的原理是将微分方程化为差分方程，并利用前一时刻的结果来计算后一时刻的结果，反复迭代即得到变量对时间的依赖关系。欧拉法要能求得比较精确的解，步长的选取是十分关键的。一般来说，选取原则是：步长必须小于系统中任意的特征参数(例如，本题中就是要小于衰变的特征时间)。  
 　　本次计算中，衰变特征时间tau=10，取步长分别为四种情况：5.0, 3.0， 2.0， 0.5, 由此分别计算出数值解并作图(如下左图)。另外，为更直观地表示出各情况数值计算的精度，分别计算了各情况数值解与解析结果的偏差(如右下图)。可以发现，在步长为时间常数的1/2时,数值解偏离正确值很大，在核数为1000左右的情况下，计算偏差能达到200；而当步长减小时，计算误差则也减小；当步长仅为时间常数的1/20时，数值偏差衰减到不足20，此时可以认为计算精度比较满意。  
-　　!(衰变图片)[https://raw.githubusercontent.com/ChenYangyao/computationalphysics_N2013301020169/master/chapter1_201603/decay%20of%20nuclei.jpg]  
+　　![衰变图片](https://raw.githubusercontent.com/ChenYangyao/computationalphysics_N2013301020169/master/chapter1_201603/decay%20of%20nuclei.jpg) 
 ## 致谢  
-　　感谢caihao老师的作业例子(点击进入)[https://github.com/caihao/computational_physics_whu/tree/master/chapter1]  
-　　matplotlib的教程(点击进入)[http://liam0205.me/2014/09/11/matplotlib-tutorial-zh-cn/]
-　　python的数据读取和写入教程(点击进入)[http://www.ibm.com/developerworks/cn/opensource/os-python8/]
+　　感谢caihao老师的作业例子[点击进入](https://github.com/caihao/computational_physics_whu/tree/master/chapter1)  
+　　matplotlib的教程[点击进入](http://liam0205.me/2014/09/11/matplotlib-tutorial-zh-cn/)  
+　　python的数据读取和写入教程[点击进入](http://www.ibm.com/developerworks/cn/opensource/os-python8/)
