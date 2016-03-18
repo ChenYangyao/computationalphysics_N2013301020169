@@ -23,7 +23,7 @@
 * 在线语法学习  
 　　(正在进行中...)  
 * 作业L1L2L3，用字符阵列显示字母和图形  
-　　(已完成，[戳我戳我查看](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/computational.phy_homework3.md))  
+　　(已完成)[戳我戳我查看](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/computational.phy_homework3.md)  
 
 ## 第四次作业  
 * 完成chapter1课后习题  
