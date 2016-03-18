@@ -4,7 +4,7 @@
 　　另外，根据直观感觉，欧拉法的计算精度应该随着步长的减小而增加，因此计算中采用了几种不同的步长，并通过图形展示出了不同步长下求得的数值解与解析解的偏差，计算发现，当步长小于衰变常数的1/20时，欧拉法的计算精度是十分可观的。  
 　　通过本次作业的练习，我终于基本掌握了用python绘图的方法，另外，也第一次通过自己写程序来解决微分方程。  
 ## 正文  
-　　源代码（[戳我戳我](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/chapter1_homework_20160316_2.py)），计算得到的数据([pickle形式](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/nuclei_decay_two_type_txt.txt)，[txt数据](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/nuclei_decay_two_type_txt.txt))，截图([指令窗](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/ch1_2.png),[数据结果](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/decay%20of%20nuclei.jpg))  
+　　源代码（[戳我戳我](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/chapter1_homework_20160316_2.py)），计算得到的数据([pickle形式](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/nuclei_decay_two_type_pickle.txt)，[txt数据](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/nuclei_decay_two_type_txt.txt))，截图([指令窗](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/ch1_2.png),[数据结果](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/decay%20of%20nuclei.jpg))  
  　　为解决课本上的习题，需用到的的函数库有  
 　　　　　　`import pickle`；  
 　　　　　　`from pylab import *`；  
