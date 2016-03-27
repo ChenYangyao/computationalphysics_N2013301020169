@@ -12,7 +12,7 @@ where for simplicity we have assumed that the two types of decay are characteriz
  
 
 ## 正文  
-　　源代码（[戳我戳我](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/homework/chapter1_201603/chapter1_homework_20160327_1.py)），计算得到的数据([pickle形式](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/nuclei_decay_two_type_txt.txt)，[txt数据](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/nuclei_decay_two_type_txt.txt))，截图([指令窗](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/ch1_2.png),[数据结果](https://raw.githubusercontent.com/ChenYangyao/computationalphysics_N2013301020169/homework/chapter1_201603/decay%20of%20nuclei.jpg))    
+　　源代码（[戳我戳我](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/homework/chapter1_201603/chapter1_homework_20160327_1.py)），计算得到的数据([pickle形式](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/nuclei_decay_two_type_txt.txt)，[txt数据](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/nuclei_decay_two_type_txt.txt))，截图([指令窗](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/ch1_2.png),[数据结果](https://raw.githubusercontent.com/ChenYangyao/computationalphysics_N2013301020169/master/chapter1_201603/decay%20of%20nuclei.jpg))    
  　　为解决课本上的习题，需用到的的函数库有  
 　　　　　　`import pickle`；  
 　　　　　　`from pylab import *`；  
