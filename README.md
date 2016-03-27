@@ -1,4 +1,10 @@
-# **陈洋遥的作业库**
+# **陈洋遥的作业库**  
+## 作业
+第1次作业 见下  
+第2次作业 见下  
+[第3次作业](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/README(ch1_homework).md)  
+[第4次作业(chapter1)](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/README(ch1_homework).md)
+
 ## 第一次作业(20160303)
 * 安装Linux系统  
 　　(我觉得windows蛮好用的...)
@@ -19,14 +25,5 @@
 * 学习用github制造图片外链之小动物展示环节!  
 　　![狗狗](https://github.com/ChenYangyao/computationalphysics_N2013301020169/raw/master/QQ.20140629135438.jpg)  
 
-## 第三次作业  
-* 在线语法学习  
-　　(正在进行中...)  
-* 作业L1L2L3，用字符阵列显示字母和图形  
-　　(已完成)[戳我戳我查看](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/computational.phy_homework3.md)  
-
-## 第四次作业  
-* 完成chapter1课后习题  
-　　(已完成)[戳我戳我查看](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/README(ch1_homework).md)
 
 
