@@ -2,7 +2,7 @@
 ## 作业
 第1次作业 见下  
 第2次作业 见下  
-[第3次作业](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/README(ch1_homework).md)  
+[第3次作业](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/computational.phy_homework3.md)  
 [第4次作业(chapter1)](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/README(ch1_homework).md)
 
 ## 第一次作业(20160303)
