@@ -3,7 +3,8 @@
 第1次作业 见下  
 第2次作业 见下  
 [第3次作业](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/computational.phy_homework3.md)  
-[第4次作业(chapter1)](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/README(ch1_homework).md)
+[第4次作业、第五次作业(chapter1)](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/README(ch1_homework).md)  
+[第6次作业(chapter2)](https://www.zybuluo.com/cyy652415049/note/333582)
 
 ## 第一次作业(20160303)
 * 安装Linux系统  
