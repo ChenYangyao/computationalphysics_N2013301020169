@@ -116,13 +116,13 @@ figure= pl.figure(figsize=(18,5))
 pl.subplot(131)
 pl.xlim(0,30000)
 pl.ylim(0,15000)
-pl.xlabel('x(m)',fontsize=15)
-pl.ylabel('y(m)',fontsize=15)
+pl.xlabel('x(m)',fontsize=18)
+pl.ylabel('y(m)',fontsize=18)
 comp= PROJECTILE(x0, y0, v0, np.pi/4, B_m, a, alpha, T0, g, 0.5)
 comp.calculate()
 comp.plot()
 pl.annotate(r'$v_{0}$'+'= '+'700.00 m/s',
-            xy=(1000,13000), fontsize=12
+            xy=(1000,13000), fontsize=25
             )            
 
 # plot the motion with diffrent dt
@@ -130,19 +130,19 @@ pl.annotate(r'$v_{0}$'+'= '+'700.00 m/s',
 pl.subplot(132)
 pl.xlim(0,30000)
 pl.ylim(0,15000)
-pl.xlabel('x(m)',fontsize=15)
+pl.xlabel('x(m)',fontsize=18)
 for dt_range in [20.,10.,5.,0.5,0.1] :
     comp= PROJECTILE_DT(x0, y0, v0, np.pi/4, B_m, a, alpha, T0, g, dt_range)
     comp.calculate()
     comp.plot()
 pl.annotate(r'$v_{0}$'+'= '+'700.00 m/s',
-            xy=(1000,13000), fontsize=12
+            xy=(1000,13500), fontsize=18
             )            
 pl.annotate(r'$\theta_{0}= 45$'+r'$^{o}$',
-            xy=(1000,12000), fontsize=12
+            xy=(1000,12000), fontsize=18
             )
-pl.annotate('with different "dt"',
-            xy=(1000,11000), fontsize=12
+pl.annotate('with different dt',
+            xy=(1000,10500), fontsize=18
             )
 pl.legend(loc='best',fontsize=12)
 
@@ -174,14 +174,14 @@ findmax= FIND_MAX(x,v,theta)
 findmax.calculate()
 print '     max range without resistance    '    # give max range WITHOUT air resistance
 print x[findmax.xmax_posi],'m     ',v[findmax.xmax_posi],'m/s    ',theta[findmax.xmax_posi],'degree'
-pl.xlabel('x(m)',fontsize=15)
+pl.xlabel('x(m)',fontsize=18)
 pl.xlim(0,60000)
 pl.ylim(0,26000)
 pl.annotate(r'$v_{0}$'+'= '+'700.00 m/s',
-            xy=(40000,22000), fontsize=12
+            xy=(30000,22000), fontsize=18
             )            
 pl.annotate('with & without \n air resistance',
-            xy=(40000,18000), fontsize=12
+            xy=(30000,17500), fontsize=18
             )
 pl.show(figure)
     

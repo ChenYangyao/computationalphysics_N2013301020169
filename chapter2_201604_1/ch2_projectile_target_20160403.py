@@ -50,9 +50,9 @@ class PROJECTILE(object):
     def plot(self):                # plot the trace of the projectile 
         pl.plot(self.x,self.y,'--')
         pl.annotate(r'$\theta$'+'=  '+'%.2f'%(self.theta0*180./np.pi)+r'$^{o}$',
-            xy=(16500,17000),fontsize=12)
-        pl.annotate(r'$v_{0}$'+'=  '+'%.2f'%self.v0+r'm/s',xy=(16500,16000),fontsize=12)
-        pl.annotate('start y= %.2f m'%self.y[0],xy=(16500,15000),fontsize=12)
+            xy=(7000,18000),fontsize=18)
+        pl.annotate(r'$v_{0}$'+'=  '+'%.2f'%self.v0+r'm/s',xy=(7000,16000),fontsize=18)
+        pl.annotate('start y= %.2f m'%self.y[0],xy=(7000,14000),fontsize=18)
 
         # class TARGET give the minimun seperation of a given orbit
 # where : 
@@ -162,7 +162,7 @@ ytar= [5000,3000,2000]
 #              connon's height, target's position: variable
 figure= pl.figure(figsize=(15,5))
 pl.subplot(1,3,1)
-pl.ylabel('y  (m)',fontsize=15)
+pl.ylabel('y  (m)',fontsize=18)
 for i in range(3):
     minlen,v,theta=0,v0,0
     pro = PROPER_ANGLE(up, low, n, v0, eps)
@@ -174,11 +174,11 @@ for i in range(3):
     pl.subplot(1,3,i+1)
     pro.plot()
     pl.annotate(r'target',xy=(xtar[i],ytar[i]),xytext=(+5, +15),
-         textcoords='offset points',fontsize=15)
+         textcoords='offset points',fontsize=25)
     pl.scatter([xtar[i]],[ytar[i]],100,color= 'red')
     pl.xlim(0,32000)
     pl.ylim(0,23000)
-    pl.xlabel('x  (m)',fontsize=15)
+    pl.xlabel('x  (m)',fontsize=18)
 pl.show(figure)
 
 
