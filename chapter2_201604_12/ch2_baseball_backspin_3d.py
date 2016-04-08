@@ -1,9 +1,22 @@
-import numpy as np
-import math
+''' 
+Program: Motion of Baseball with spin vertical
+Purpose: this program solves for the motion of a baseball
+                with vertical spin
+                it will move in 3d space
+it is according to the problem 2.19 in text book   
+Author: Chenyangyao       Last Modify: 20160408   
+'''
 
+import numpy as np    # import packages
+import math
 import mpl_toolkits.mplot3d 
 import matplotlib.pyplot as plt
 
+# class BASEBALL will compute the trajetory of the baseball with air resistance
+# where
+#             vx0,vy0,vz0: initial velocity of the baseball
+#             dt: time step size
+#             omgx,omgy,omgz: the angular velocity
 class BASEBALL(object):
     def __init__(self, _vx0, _vy0, _vz0, _dt= 0.1, _omgx=0,_omgy=0,_omgz=0):
         self.vx, self.vy, self.vz= _vx0, _vy0, _vz0 
@@ -16,18 +29,18 @@ class BASEBALL(object):
         self.omgx, self.omgy, self.omgz= _omgx, _omgy, _omgz 
     def calculate(self):
         while True: 
-            self.x.append(self.vx*self.dt+self.x[-1])
+            self.x.append(self.vx*self.dt+self.x[-1])            # append coordinates to x,y,z
             self.y.append(self.vy*self.dt+self.y[-1])
             self.z.append(self.vz*self.dt+self.z[-1])
             self.vx, self.vy, self.vz = \
                 (-self.B2*self.v*self.vx+ self.S0*self.vy*self.omgz)*self.dt+ self.vx, \
                 (-self.g- self.B2*self.v*self.vy+ self.S0*self.vz*self.omgx)*self.dt+ self.vy,\
-                (self.S0*self.vx*self.omgy)*self.dt+ self.vz
+                (self.S0*self.vx*self.omgy)*self.dt+ self.vz                      # change the velocity
             self.v= math.sqrt(self.vx**2+self.vy**2+self.vz**2)
             self.B2= 0.0039+ 0.0058/(1.+math.exp((self.v-35)/5))
             if self.y[-1]< 0: 
                 break
-    def graphics(self,_gra, _omgy):
+    def graphics(self,_gra, _omgy):             # plot the trajetory
         _gra.plot(self.z, self.x, self.y, label=r'$\omega _y$ = %.2f rad/s'%_omgy)
         _gra.scatter([self.z[0],self.z[-1]],[self.x[0],self.x[-1]],[self.y[0],self.y[-1]],s=30)
         _gra.text(self.z[-1], self.x[-1]-80, self.y[-1], r'$\omega _y$ = %.2f rad/s'%_omgy,fontsize=10)
@@ -35,7 +48,7 @@ class BASEBALL(object):
 
 fig= plt.figure(figsize=(6,6))
 ax = plt.subplot(1,1,1,projection='3d')
-for omgy in [-400.,200.,0.,200.,400.]:
+for omgy in [-400.,200.,0.,200.,400.]:          # change the angular velocity the determine the dependence of trajetory on omega
     comp= BASEBALL(110*0.4470*math.cos(np.pi/4), 110*0.4470*math.sin(np.pi/4), 0., 0.1,0, omgy, 0)
     comp.calculate()
     comp.graphics(ax, omgy)
