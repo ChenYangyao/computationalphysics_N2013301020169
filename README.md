@@ -6,7 +6,7 @@
 [第4次作业、第5次作业(chapter1)](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/chapter1_201603/README(ch1_homework).md)  
 [第6次作业(chapter2,抛体运动)](https://www.zybuluo.com/cyy652415049/note/333582)  
 [第7次作业(chapter2,棒球运动)](https://www.zybuluo.com/cyy652415049/note/338769)  
-[第8次作业(chapter3,振动)](https://www.zybuluo.com/cyy652415049/note/347388)
+[第8次作业(chapter3,简谐摆和非简谐摆)](https://www.zybuluo.com/cyy652415049/note/347388)
 
 ## 第一次作业(20160303)
 * 安装Linux系统  
