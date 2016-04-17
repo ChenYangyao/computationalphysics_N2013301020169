@@ -1,6 +1,21 @@
+'''
+program SIMPLE_pendulum_diff_method
+Author: Chen Yangyao   Last Modify:20160415
+'''
+# basic packages needed
+#     matplotlib - for plot 2D lines
+#     numpy - for math 
+#     time - for counting time
 import time
 import matplotlib.pyplot as plt
 import numpy as np
+
+# class EULER
+# use EULER METHOD to solve the pendulum
+# para. & var.  :    
+#             theta0, omg0, t0 - initial angel & angular velocity & time
+#             l, g, dt, time - length of string, gravity acceleration, time step size & total time 
+#             the time period of this pendulum - 1(s)
 class EULER(object):
     def __init__(self, _theta0=10., _omg0=0., _t0=0., _l=9.8/(4.*(np.pi)**2),_g=9.8, _dt=0.01, _time=20000.):
         self.theta, self.omg, self.t = [_theta0], [_omg0], [_t0]
@@ -18,6 +33,13 @@ class EULER(object):
         self.diff=np.array(self.E)-self.E[0]
         self.diff=np.sqrt(np.mean(self.diff*self.diff))
         return self.diff
+        
+# class CROMER
+# use EULER-CROMER METHOD to solve the pendulum
+# para. & var.  :    
+#             theta0, omg0, t0 - initial angel & angular velocity & time
+#             l, g, dt, time - length of string, gravity acceleration, time step size & total time 
+#             the time period of this pendulum - 1(s)  
 class CROMER(EULER):
     def calculate(self):
         for i in range(self.n):
@@ -27,6 +49,13 @@ class CROMER(EULER):
             self.E.append(0.5*((self.l*self.omg[-1])**2+self.g*self.l*(self.theta[-1])**2))
     def plot_E(self,_ax):
         _ax.plot(self.t,self.E,'--y',label='Euler-Cromer')
+        
+# class RUNGE_RUNGE_22
+# use 2nd Runge-Kutta Method to solve the pendulum
+# para. & var.  :    
+#             theta0, omg0, t0 - initial angel & angular velocity & time
+#             l, g, dt, time - length of string, gravity acceleration, time step size & total time 
+#             the time period of this pendulum - 1(s)  
         
 class RUNGE_RUNGE_22(EULER):
     def calculate(self):
@@ -41,6 +70,12 @@ class RUNGE_RUNGE_22(EULER):
     def plot_E(self,_ax):
         _ax.plot(self.t,self.E,'--',label='2nd-order Runge-Kutta')
 
+# class RUNGE_RUNGE_44
+# use 4th Runge-Kutta Method to solve the pendulum
+# para. & var.  :    
+#             theta0, omg0, t0 - initial angel & angular velocity & time
+#             l, g, dt, time - length of string, gravity acceleration, time step size & total time 
+#             the time period of this pendulum - 1(s)        
 class RUNGE_RUNGE_44(EULER):
     def calculate(self):
         for i in range(self.n):
@@ -59,6 +94,14 @@ class RUNGE_RUNGE_44(EULER):
             self.E.append(0.5*((self.l*self.omg[-1])**2+self.g*self.l*(self.theta[-1])**2))
     def plot_E(self,_ax):
         _ax.plot(self.t,self.E,'--',label='4th-order Runge-Kutta')
+        
+        
+# class VERLET
+# use Verlet Method to solve the pendulum
+# para. & var.  :    
+#             theta0, omg0, t0 - initial angel & angular velocity & time
+#             l, g, dt, time - length of string, gravity acceleration, time step size & total time 
+#             the time period of this pendulum - 1(s)
 class VERLET(EULER):
     def calculate(self):
         self.t1,self.t2,self.t3,self.t4=self.t[-1],self.t[-1]+self.dt/2.,self.t[-1]+self.dt/2.,self.t[-1]+self.dt
@@ -81,7 +124,7 @@ class VERLET(EULER):
         self.E.append(self.E[-1])
     def plot_E(self,_ax):
         _ax.plot(self.t,self.E,'--',label='Verlet')
-            
+# function main: use a method, plot the energy line, and give the accuracy and time cost         
 def main(_method,_ax):
     start=time.clock()
     cal=_method()
@@ -90,6 +133,8 @@ def main(_method,_ax):
     cal.plot_E(_ax)
     return [1./cal.var(), np.abs(end-start)]
 
+# plot the graphics
+#      period number : 20000
 n=[1.,2.,3.]
 e_diff = []
 cp_time = []
@@ -98,15 +143,15 @@ ax1=plt.subplot(121)
 ax2=plt.subplot(122)
 ax3=ax2.twinx()
 
-temp = main(CROMER,ax1)
+temp = main(CROMER,ax1)   # CROMER METHOD
 e_diff.append(temp[0])
 cp_time.append(temp[1])
 
-temp = main(VERLET,ax1)
+temp = main(VERLET,ax1)    #VERLET METHOD
 e_diff.append(temp[0])
 cp_time.append(temp[1])
 
-temp = main(RUNGE_RUNGE_44,ax1)
+temp = main(RUNGE_RUNGE_44,ax1)   # 4-th RUNGE-KUTTA METHOD
 e_diff.append(temp[0])
 cp_time.append(temp[1])
 
