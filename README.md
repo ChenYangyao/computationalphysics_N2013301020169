@@ -7,7 +7,8 @@
 [第6次作业(chapter2,抛体运动)](https://www.zybuluo.com/cyy652415049/note/333582)  
 [第7次作业(chapter2,棒球运动)](https://www.zybuluo.com/cyy652415049/note/338769)  
 [第8次作业(chapter3,简谐摆和非简谐摆)](https://www.zybuluo.com/cyy652415049/note/347388)  
-[第9次作业(chapter3,混沌摆)](https://www.zybuluo.com/cyy652415049/note/355836)
+[第9次作业(chapter3,混沌摆)](https://www.zybuluo.com/cyy652415049/note/355836)  
+[第10次作业(chapter3,Lorenz模型和台球运动)](https://www.zybuluo.com/cyy652415049/note/358905)
 
 ## 第一次作业(20160303)
 * 安装Linux系统  

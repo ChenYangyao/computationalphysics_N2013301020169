@@ -1,6 +1,16 @@
+'''
+PROGRAM rigidball
+Author: Chen Yangyao     Last Modify:20160502
+this program solves the rigid model for molecules
+''' 
 from numpy import * 
 import matplotlib.pyplot as plt
 
+# class RIGID : solves for tje rigid model of molecules
+# where:  
+#         number : number of molecule in a line 
+#         radii : radii of molecule 
+#         v0,sigma : initial velocity and its distribution variance
 class RIGID(object):
     def __init__(self,_number=15,_radii=0.02,_v0=0.3,_sigma=0.1):
         self.n=_number**2
@@ -18,7 +28,7 @@ class RIGID(object):
             for j in linspace(-0.3,0.3,_number):
                 self.x[0]=hstack((self.x[0],i))
                 self.y[0]=hstack((self.y[0],j))
-    def cal(self,_dt=0.1,_time=100):
+    def cal(self,_dt=0.1,_time=100):         # Use Euler method to solve the rigid model 
         self.dt=_dt
         self.time=_time
         for k in range(int(self.time/self.dt)):
@@ -52,14 +62,14 @@ class RIGID(object):
                 if abs(self.nexty[i])>(0.5-self.r):
                     self.nexty[i]=self.nexty[i]-sign(self.nexty[i])*(1-self.r*2)
             self.gama=sqrt(self.nextvx**2+self.nextvy**2)
-            self.gama=abs(self.gama-(3*1E-4))/self.gama
+            self.gama=abs(self.gama-(3*1E-4))/self.gama        # to lower the temperature
             self.nextvx=self.nextvx*self.gama
             self.nextvy=self.nextvy*self.gama
             self.x.append(self.nextx)
             self.y.append(self.nexty)
             self.vx.append(self.nextvx)
             self.vy.append(self.nextvy)
-    def plot(self,_ax,_i):
+    def plot(self,_ax,_i):         # plot the ith picture
         _ax.plot(self.x[_i],self.y[_i],'ob',markersize=4,label='last second')
 
 cmp=RIGID()
@@ -73,6 +83,7 @@ for i in range(5):
     ax1.set_ylim(-0.7,0.7)
     plt.savefig("C:\\Users\\ChenYangyao\\Desktop\\pic_ch3_lorenz\\rigid\\i_%d .png"%i)
 '''
+# compute and output data
 myfile=file(r'd:\datax.txt','w')
 for i in range(len(cmp.x)):
     for j in range(cmp.n):

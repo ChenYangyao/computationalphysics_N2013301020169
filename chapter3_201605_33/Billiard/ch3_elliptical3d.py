@@ -1,3 +1,8 @@
+'''
+PROGRAM Billiard_elliptical 3d
+Author: Chen Yangyao     Last Modify:20160502
+this program solves the billiard motion and output data
+''' 
 from numpy import * 
 import matplotlib.pyplot as plt
 
