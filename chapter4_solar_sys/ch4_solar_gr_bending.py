@@ -1,3 +1,8 @@
+'''
+PROGRAM solar gr bending 
+this program solves for the bending of light in GR theory
+author: ChenYangyao          Last Modify: 20160508
+'''
 
 from numpy import *
 import matplotlib.pyplot as plt
@@ -5,6 +10,10 @@ import matplotlib.pyplot as plt
 class BENDING(object):
     ''' 
     class BENDING solves for bending of light
+    where:  
+        E: Energy  L: angular momentum  M: mass of central star   
+        r0, ph0: initial distance and angle between star and source
+        dt, time :time step size and total time
     '''
     def __init__(self, _E=0.22, _L=1., _M=1., _r0=2.5,_ph0=0., _dt=0.0001, _time =20.):
         self.E, self.L, self.M=_E, _L, _M

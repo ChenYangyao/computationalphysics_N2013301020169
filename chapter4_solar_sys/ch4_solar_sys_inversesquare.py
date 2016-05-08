@@ -1,10 +1,19 @@
-
+'''
+PROGRAM solar sys inversesquare
+this program solves for the non-inverse-square gravity
+author: ChenYangyao          Last Modify: 20160508
+'''
 from numpy import *
 import matplotlib.pyplot as plt
 
 class INVERSE(object):
     ''' 
     class BINARY solves for system that not satisfy the inverse-square law
+    where:
+        -beta: index of the force
+        e: ellipticity
+        m: mass of central star
+        dt, time : time step size and total time 
     '''
     def __init__(self, _beta=2.05, _e=0., _m=4*(pi**2), _dt=0.001, _time=10):
         self.m=_m
@@ -16,18 +25,18 @@ class INVERSE(object):
         self.time= _time
         self.n=int(_time/_dt)
         print self.x[-1],self.y[-1],self.vx[-1],self.vy[-1]
-    def cal(self):
+    def cal(self):       # use Euler-Cromer Method to calculate the trajectory of stars
         for i in range(self.n):
             self.r=sqrt(self.x[-1]**2+self.y[-1]**2)
             self.vx.append(self.vx[-1]+self.dt*(-self.m*self.x[-1]/self.r**(self.beta+1.)))
             self.vy.append(self.vy[-1]+self.dt*(-self.m*self.y[-1]/self.r**(self.beta+1.)))
             self.x.append(self.x[-1]+self.vx[-1]*self.dt)
             self.y.append(self.y[-1]+self.vy[-1]*self.dt)
-    def plot_trajectory(self,_ax,_style):
+    def plot_trajectory(self,_ax,_style):       # plot the trajectory
         _ax.plot(self.x,self.y,'o'+_style,markersize=0.5,label='e= %.2f'%self.e)
         _ax.plot([self.x[-1]],[self.y[-1]],'o'+_style,markersize=8)
         _ax.plot([0],[0],'or',markersize=20)
-    def precession_rate(self):
+    def precession_rate(self):  # calculate the precession rate
         self.x_critical=0
         self.y_critical=0
         self.t_critical=0
@@ -43,7 +52,7 @@ class INVERSE(object):
         self.rate = arctan(self.y_critical/self.x_critical)/self.t_critical
         return self.rate
         
-       
+# calculate the trajectory of planet with different ellipticity       
 fig=plt.figure(figsize=(10,10)) 
 ax1=plt.axes([0.1,0.55,0.35,0.35])
 ax2=plt.axes([0.6,0.55,0.35,0.35])
@@ -100,6 +109,7 @@ for i in range(len(cmp.x)):
     print >> mfile,cmp.x[i],cmp.y[i]
 mfile.close()
 
+# change the ellipticity and get the corresponding precession rate
 e=[]
 rate=[]
 for i in linspace(0.1,0.6,20):
