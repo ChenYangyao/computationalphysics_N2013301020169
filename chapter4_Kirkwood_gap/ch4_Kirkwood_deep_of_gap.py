@@ -1,9 +1,9 @@
 '''
-PROGRAM Kirkwood trajectory
+PROGRAM Kirkwood depp of gap
 this program solves for the motion of asteroids near the Kirkwood gap
 both gravity from the Sun and Jupiter will be considered
+and calculate the amplitude of asteroid near the gap
 '''
-
         
 from numpy import *
 import matplotlib.pyplot as plt
@@ -73,6 +73,7 @@ class KIRKWOOD(object):
 fig=plt.figure(figsize=(12,6))
 ax1=plt.axes([0.1,0.1,0.8,0.8])
 
+# compute the amplitude of asteroid near the gap
 radius=[]
 deviation=[]
 for i in linspace(2.80,2.817,200):

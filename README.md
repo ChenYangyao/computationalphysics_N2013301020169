@@ -9,7 +9,8 @@
 [第8次作业(chapter3,简谐摆和非简谐摆)](https://www.zybuluo.com/cyy652415049/note/347388)  
 [第9次作业(chapter3,混沌摆)](https://www.zybuluo.com/cyy652415049/note/355836)  
 [第10次作业(chapter3,Lorenz模型和台球运动)](https://www.zybuluo.com/cyy652415049/note/358905)    
-[第11次作业(chapter4,行星运动)](https://www.zybuluo.com/cyy652415049/note/363775)
+[第11次作业(chapter4,行星运动)](https://www.zybuluo.com/cyy652415049/note/363775)  
+[第12次作业(chapter4,太阳系中的共振)](https://www.zybuluo.com/cyy652415049/note/378419)
 
 ## 第一次作业(20160303)
 * 安装Linux系统  
