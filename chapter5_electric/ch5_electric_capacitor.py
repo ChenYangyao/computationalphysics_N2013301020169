@@ -1,6 +1,7 @@
 '''
-program : electric field near capacitor
-
+program : electric capacitor
+this program give the potential plot of capacitor
+Author: Chen Yangyao           Last modify: 20160523
 '''
 
 from numpy import *
@@ -8,7 +9,14 @@ import mpl_toolkits.mplot3d
 import matplotlib.pyplot as plt
 from matplotlib import cm
 from matplotlib.ticker import LinearLocator, FormatStrFormatter
-
+'''
+class Electric_Field
+this class solves the potential euation of capacitor
+where: 
+              V1: potential of the left plate
+              V2: potential of the right palte
+              n: size of one side
+'''
 class ELECTRIC_FIELD(object):
     def __init__(self, V1=1, V2=-1, V_boundary=0, n=30):
         self.V1=float(V1)
@@ -25,7 +33,7 @@ class ELECTRIC_FIELD(object):
         for j in range(self.s3,self.s3+self.s4):
             self.V[j][self.s1]=self.V1
             self.V[j][self.s1+self.s2+1]=self.V2            
-    def update_V_SOR(self):
+    def update_V_SOR(self):       # use SOR method solve the potential
         self.alpha=2./(1.+pi/self.n)
         self.counter=0
         while True:
@@ -41,7 +49,7 @@ class ELECTRIC_FIELD(object):
             if (self.delta_V < abs(self.V2-self.V1)*(1.0E-5)*self.n*self.n and self.counter >= 10):
                 break
         print 'itertion length n=',self.n,'  ',self.counter,' times'
-    def Ele_field(self,x1,x2,y1,y2):
+    def Ele_field(self,x1,x2,y1,y2):    # calculate the Electirc field  
         self.dx=abs(x1-x2)/float(self.n-1)
         self.Ex=[]
         self.Ey=[]
@@ -52,7 +60,7 @@ class ELECTRIC_FIELD(object):
             for i in range(1,self.n-1,1):
                 self.Ex[j][i]=-(self.V[j][i+1]-self.V[j][i-1])/(2*self.dx)
                 self.Ey[j][i]=-(self.V[j-1][i]-self.V[j+1][i])/(2*self.dx)
-    def plot_3d(self,ax,x1,x2,y1,y2):
+    def plot_3d(self,ax,x1,x2,y1,y2):   # give 3d plot the potential
         self.x=linspace(x1,x2,self.n)
         self.y=linspace(y2,y1,self.n)
         self.x,self.y=meshgrid(self.x,self.y)
@@ -65,7 +73,7 @@ class ELECTRIC_FIELD(object):
         ax.set_ylabel('y (m)',fontsize=14)
         ax.set_zlabel('Electric potential (V)',fontsize=14)
         ax.set_title('Potential near capacitor',fontsize=18)
-    def plot_2d(self,ax1,ax2,x1,x2,y1,y2):
+    def plot_2d(self,ax1,ax2,x1,x2,y1,y2):    # give 2d plot of potential and electric field
         self.x=linspace(x1,x2,self.n)
         self.y=linspace(y2,y1,self.n)
         self.x,self.y=meshgrid(self.x,self.y)
@@ -96,6 +104,7 @@ class ELECTRIC_FIELD(object):
 
         
 ''' 
+# give plot of potential and electric field 
 fig=plt.figure(figsize=(10,5))
 ax1=plt.axes([0.1,0.1,0.35,0.8])
 ax2=plt.axes([0.55,0.1,0.35,0.8])
@@ -108,7 +117,7 @@ cmp.plot_2d(ax1,ax2,-1.,1.,-1.,1.)
 plt.show()     
  '''     
         
-
+# give 3d plot of potential
 fig=plt.figure(figsize=(14,7))
 ax1= plt.subplot(1,2,1,projection='3d')
 cmp=ELECTRIC_FIELD()

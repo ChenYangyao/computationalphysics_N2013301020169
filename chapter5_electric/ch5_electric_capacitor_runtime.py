@@ -1,6 +1,7 @@
 '''
 program : electric field near capacitor
-
+this program compare the speed of three method
+Author: Chen Yangyao           Last modify: 20160523
 '''
 
 from numpy import *
@@ -9,7 +10,14 @@ import matplotlib.pyplot as plt
 from matplotlib import cm
 from matplotlib.ticker import LinearLocator, FormatStrFormatter
 import time
-
+'''
+class Electric_Field
+this class solves the potential euation of capacitor
+where: 
+              V1: potential of the left plate
+              V2: potential of the right palte
+              n: size of one side
+'''
 class ELECTRIC_FIELD(object):
     def __init__(self, V1=1, V2=-1, V_boundary=0, n=30):
         self.V1=float(V1)
@@ -27,7 +35,7 @@ class ELECTRIC_FIELD(object):
             self.V[j][self.s1]=self.V1
             self.V[j][self.s1+self.s2+1]=self.V2            
     def update_V_Jacobi(self):
-        self.counter=0        
+        self.counter=0                         # use Jacobi method solve the potential       
         while True:
             self.V_next=[]
             for j in range(self.n):
@@ -50,7 +58,7 @@ class ELECTRIC_FIELD(object):
                 break
         print 'jacobi itertion length n=',self.n,'  ',self.counter,' times'
         return self.counter
-    def update_V_Gauss(self):
+    def update_V_Gauss(self):              # use Gauss-Seidel method solve the potential
         self.counter=0
         while True:
             self.delta_V=0.
@@ -66,7 +74,7 @@ class ELECTRIC_FIELD(object):
                 break
         print 'gauss itertion length n=',self.n,'  ',self.counter,' times'
         return self.counter    
-    def update_V_SOR(self):
+    def update_V_SOR(self):           # use SOR method solve the potential
         self.alpha=2./(1.+pi/self.n)
         self.counter=0
         while True:
@@ -83,7 +91,7 @@ class ELECTRIC_FIELD(object):
                 break
         print 'SOR itertion length n=',self.n,'  ',self.counter,' times'
         return self.counter
-    def Ele_field(self,x1,x2,y1,y2):
+    def Ele_field(self,x1,x2,y1,y2):       # calculate the Electirc field  
         self.dx=abs(x1-x2)/float(self.n-1)
         self.Ex=[]
         self.Ey=[]
@@ -94,7 +102,7 @@ class ELECTRIC_FIELD(object):
             for i in range(1,self.n-1,1):
                 self.Ex[j][i]=-(self.V[j][i+1]-self.V[j][i-1])/(2*self.dx)
                 self.Ey[j][i]=-(self.V[j-1][i]-self.V[j+1][i])/(2*self.dx)
-    def plot_3d(self,ax,x1,x2,y1,y2):
+    def plot_3d(self,ax,x1,x2,y1,y2):       # give 3d plot the potential
         self.x=linspace(x1,x2,self.n)
         self.y=linspace(y2,y1,self.n)
         self.x,self.y=meshgrid(self.x,self.y)
@@ -107,7 +115,7 @@ class ELECTRIC_FIELD(object):
         ax.set_ylabel('y (m)',fontsize=14)
         ax.set_zlabel('Electric potential (V)',fontsize=14)
         ax.set_title('Potential near capacitor',fontsize=18)
-    def plot_2d(self,ax1,ax2,x1,x2,y1,y2):
+    def plot_2d(self,ax1,ax2,x1,x2,y1,y2):     # give 2d plot of potential and electric field
         self.x=linspace(x1,x2,self.n)
         self.y=linspace(y2,y1,self.n)
         self.x,self.y=meshgrid(self.x,self.y)
@@ -126,7 +134,7 @@ class ELECTRIC_FIELD(object):
         ax2.set_title('Electric field',fontsize=18)
         ax2.set_xlabel('x (m)',fontsize=14)
         ax2.set_ylabel('y (m)',fontsize=14)
-    def export_data(self,x1,x2,y1,y2):
+    def export_data(self,x1,x2,y1,y2):          # export data
         self.mfile=open(r'd:\data.txt','w')
         self.x=linspace(x1,x2,self.n)
         self.y=linspace(y2,y1,self.n)
@@ -136,8 +144,8 @@ class ELECTRIC_FIELD(object):
                 print >> self.mfile, self.x[j][i],self.y[j][i],self.V[j][i]
         self.mfile.close()
         
-    
-n_min=10
+#  compare three method   
+n_min=10        # Jacobi method
 n_max=50
 n_jacobi=[]
 iters_jacobi=[]
@@ -152,7 +160,7 @@ for i in range(n_min,n_max,2):
     n_jacobi.append(i)
 
 
-n_gauss=[]
+n_gauss=[]         # Gauss Seidel method
 iters_gauss=[]
 time_gauss=[]
 for i in range(n_min,n_max,2):
@@ -164,7 +172,7 @@ for i in range(n_min,n_max,2):
     time_gauss.append(end-start)   
     n_gauss.append(i)
     
-n_SOR=[]
+n_SOR=[]       # SOR method
 iters_SOR=[]
 time_SOR=[]
 for i in range(n_min,n_max,2):
@@ -176,12 +184,14 @@ for i in range(n_min,n_max,2):
     n_SOR.append(i)
 print time_SOR
 
+#  export data
 mfile=open(r'd:\data.txt','w')
 for i in range(len(n_jacobi)):
     print >> mfile, n_jacobi[i], time_jacobi[i], time_gauss[i], time_SOR[i]
 mfile.close()
 
 
+# give a simple plot
 fig=plt.figure(figsize=(14,7))
 ax1=plt.axes([0.1,0.1,0.35,0.8])
 ax2=plt.axes([0.55,0.1,0.35,0.8])

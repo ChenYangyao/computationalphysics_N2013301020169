@@ -1,11 +1,19 @@
 '''
 program : electric field
-
+Author: Chen Yangyao           Last modify: 20160523
 '''
 from numpy import *
 import mpl_toolkits.mplot3d
 import matplotlib.pyplot as plt
 
+'''
+class Electric_Field
+this class solves the potential euation of capacitor
+where: 
+              V1: potential of the left plate
+              V2: potential of the right palte
+              n: size of one side
+'''
 class ELECTRIC_FIELD(object):
     def __init__(self, V1, V2, n):
         self.V1=float(V1)
@@ -17,7 +25,7 @@ class ELECTRIC_FIELD(object):
         for i in range(self.n):
             self.V[0][i]=self.V1+(self.V2-self.V1)/(self.n-1)*i
             self.V[self.n-1][i]=self.V1+(self.V2-self.V1)/(n-1)*i
-    def update_V(self):
+    def update_V(self):       # use SOR method solve the potential
         self.alpha=2./(1.+pi/self.n)
         self.counter=0
         while True:
@@ -30,7 +38,7 @@ class ELECTRIC_FIELD(object):
             self.counter=self.counter+1
             if (self.delta_V < abs(self.V2-self.V1)*(1.0E-5)*self.n*self.n and self.counter >= 10):
                 break
-    def plot_3d(self,ax,x1,x2,y1,y2):
+    def plot_3d(self,ax,x1,x2,y1,y2):   # give 3d plot the potential
         for j in range (self.n):
             for i in range(self.n):
                 self.x=x1+(x2-x1)/(self.n-1.)*i
@@ -46,7 +54,7 @@ class ELECTRIC_FIELD(object):
         self.mfile.close()
             
         
-           
+# give plot of potential of capacitor          
 cmp=ELECTRIC_FIELD(-1.,1.,100)
 cmp.update_V()
 cmp.export_data(-1.,1.,-1.,1.)
