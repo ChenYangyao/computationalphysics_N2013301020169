@@ -12,7 +12,8 @@
 [第11次作业(chapter4,行星运动)](https://www.zybuluo.com/cyy652415049/note/363775)  
 [第12次作业(chapter4,太阳系中的共振)](https://www.zybuluo.com/cyy652415049/note/378419)  
 [第13次作业(chapter5,电场)](https://www.zybuluo.com/cyy652415049/note/387438)   
-[第14次作业(chapter6,波动)](https://www.zybuluo.com/cyy652415049/note/394970)  
+[第14次作业(chapter6,波动)](https://www.zybuluo.com/cyy652415049/note/394970) 
+[期末结课作业(Ising model)](https://github.com/ChenYangyao/computationalphysics_N2013301020169/blob/master/Final_Project_Monte_Carlo/M_C_Ising_Model/Computation_Ising_Model.pdf)
   
   
 
