@@ -1,11 +1,20 @@
 '''
-Program : Ising model plot
+Program : Ising first order
         this program solves the Ising model
-        it also give the plot of 2-d spin system
+        it also gives the relation of magnetization vs. magnetic field 
+        it can be used to show the hysteresis
 Auther: Chen Yangyao      Last Modify: 20160613
 '''
 import matplotlib.pylab as plt
 from numpy import *
+'''
+class : ising
+    this class solves the problem of 2-d ising model
+where:
+    H_magnetic: magnetic field
+    Temperature: temperature of heat bath
+    length: length of 2-d ising cube
+'''
 class ISING(object):
     def __init__(self, _H_magnetic=0., _Temperature=0.5, _length=20):
         self.length = int(_length)
@@ -46,7 +55,7 @@ class ISING(object):
                     self.temp1=random.rand()
                     if self.temp1<=self.temp:
                         _system[i][j]=-_system[i][j]
-    def energy_ave(self,_system,_H=0.):
+    def energy_ave(self,_system,_H=0.): # give the total energy(mean per particle) of a given system
         self.energy=0.
         for i in range(self.length):
             for j in range(self.length):
@@ -54,7 +63,7 @@ class ISING(object):
                 self.temp=array([_system[self.temp1[0]][self.temp1[1]],_system[self.temp2[0]][self.temp2[1]],_system[self.temp3[0]][self.temp3[1]],_system[self.temp4[0]][self.temp4[1]]])
                 self.energy=self.energy+(-sum(self.temp)*_system[i][j])/2.- _system[i][j]*_H
         return self.energy/self.length**2
-    def first_order(self):
+    def first_order(self):  # give the data of first orde transition
         self.H=list(linspace(10,-10,60))
         self.M=[]
         print self.H

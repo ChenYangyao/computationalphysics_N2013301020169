@@ -1,5 +1,19 @@
+'''
+Program : Ising transition
+        this program solves the Ising model
+        it also gives the energy and magnetization vs. temperature
+Auther: Chen Yangyao      Last Modify: 20160613
+'''
 import matplotlib.pylab as plt
 from numpy import *
+'''
+class : ising
+    this class solves the problem of 2-d ising model
+where:
+    H_magnetic: magnetic field
+    Temperature: temperature of heat bath
+    length: length of 2-d ising cube
+'''
 class ISING(object):
     def __init__(self, _H_magnetic=0., _Temperature=0.5, _length=20):
         self.length = int(_length)
@@ -71,7 +85,7 @@ class ISING(object):
         ax2.set_ylim(-3,3)
         plt.show()
         
-class EXPORT(object):
+class EXPORT(object):   # export data of transition
     def __init__(self):
         self.T=linspace(0.5,5,100)
     def calculate(self):

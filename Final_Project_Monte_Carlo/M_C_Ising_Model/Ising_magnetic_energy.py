@@ -1,11 +1,19 @@
 '''
-Program : Ising model plot
+Program : Ising model magnetic energy
         this program solves the Ising model
-        it also give the plot of 2-d spin system
+        it also gives the plot magnetization and energy vs. time
 Auther: Chen Yangyao      Last Modify: 20160613
 '''
 import matplotlib.pylab as plt
 from numpy import *
+'''
+class : ising
+    this class solves the problem of 2-d ising model
+where:
+    H_magnetic: magnetic field
+    Temperature: temperature of heat bath
+    length: length of 2-d ising cube
+'''
 class ISING(object):
     def __init__(self, _H_magnetic=0., _Temperature=0.5, _length=20):
         self.length = int(_length)
@@ -57,7 +65,7 @@ class ISING(object):
     def plot_system(self,_sys):
         pass
 
-class ENERGY_MAG(object):
+class ENERGY_MAG(object):            # give the plot of energy and magnetization vs temperature
     def __init__(self):
         self.T=list(arange(0.5,2.1,0.1))+list(arange(2.1,2.5,0.01))+list(arange(2.5,5,0.1))
     def calculate(self):

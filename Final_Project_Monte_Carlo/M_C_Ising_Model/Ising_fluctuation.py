@@ -1,11 +1,19 @@
 '''
-Program : Ising model plot
+Program : Ising model fluctuation
         this program solves the Ising model
-        it also give the plot of 2-d spin system
+        it also gives the plot magnetization and energy vs. time (given temperature)
 Auther: Chen Yangyao      Last Modify: 20160613
 '''
 import matplotlib.pylab as plt
 from numpy import *
+'''
+class : ising
+    this class solves the problem of 2-d ising model
+where:
+    H_magnetic: magnetic field
+    Temperature: temperature of heat bath
+    length: length of 2-d ising cube
+'''
 class ISING(object):
     def __init__(self, _H_magnetic=0., _Temperature=0.5, _length=20):
         self.length = int(_length)
@@ -56,7 +64,7 @@ class ISING(object):
         return self.energy/self.length**2
     def plot_system(self,_sys):
         pass
-    def plot_spinvstime(self,_times):
+    def plot_spinvstime(self,_times):         # plot spins energy and magnetization vs. time
         self.time=linspace(0,_times,_times+1)
         self.mag=[mean(self.system)]
         self.ene=[self.energy_ave(self.system,self.H)]
